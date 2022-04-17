@@ -1,0 +1,87 @@
+CREATE TABLE Stadions
+
+(
+
+Id INT PRIMARY KEY IDENTITY,
+
+Name NVARCHAR(100) NOT NULL UNIQUE,
+
+HourPrice INT,
+
+Capacity INT,
+
+)
+
+
+
+CREATE TABLE Users
+
+(
+
+Id INT PRIMARY KEY IDENTITY,
+
+Fullname NVARCHAR(100)NOT NULL,
+
+Email NVARCHAR(100),
+
+)
+
+
+CREATE TABLE Reservations
+
+(
+
+Id INT PRIMARY KEY IDENTITY,
+
+StartDate DATETIME2,
+
+EndDate DATETIME2,
+
+StadionId INT FOREIGN KEY REFERENCES Stadions(Id),
+
+UserId INT FOREIGN KEY REFERENCES Users(Id)
+
+)
+
+INSERT INTO Stadions(Name,HourPrice,Capacity)
+
+VALUES
+
+('Alianz',40,200),
+
+('CampNou',50,300),
+
+('Brenabeu',20,100),
+
+('Bahramov',60,400)
+
+
+
+INSERT INTO Users(Fullname,Email)
+
+VALUES
+
+('Ferid123','ferid123@mail.ru'),
+
+('Sakir123','sakir123@mail.ru'),
+
+('Ismet123','ismet123@mail.ru'),
+
+('Rasim123','rasim23@mail.ru')
+
+
+
+
+
+INSERT INTO Reservations(StartDate,EndDate,StadionId,UserId)
+
+VALUES
+
+('2022-06-12 10:34:09 AM','2022-06-12 12:34:09 AM',)
+
+
+
+
+SELECT *FROM Stadions
+
+SELECT *FROM Users
